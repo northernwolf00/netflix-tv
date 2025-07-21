@@ -54,4 +54,43 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+
+    // Navigation
+    implementation(libs.navigation)
+    implementation(libs.material.navigation)
+    implementation(libs.backHandler)
+    implementation(libs.compose.ui)
+
+    // Networking
+    implementation(libs.coil.compose)
+    implementation(libs.jetbrains.serialization)
+    implementation(libs.components.resources)
+
+    // Data
+//    implementation(libs.androidx.room.compiler)
+//    implementation(libs.androidx.room.runtime)
+//    implementation(libs.sqlite.bundled)
+//    implementation(libs.datastore.preferences)
+
+    // Architecture
+    implementation(libs.lifecycle.viewmodel)
+//    implementation(libs.hilt.navigation)
+    implementation(libs.hilt.android)
+
+    // Compose & UI
+    implementation(libs.compose.material3)
+    implementation(libs.io.coil.kt.coil3)
+
+
 }
+
+//
+//dependencies {
+//    ksp(libs.androidx.room.compiler)
+//    add("kspAndroid", libs.androidx.room.compiler)
+//    add("kspIosSimulatorArm64", libs.androidx.room.compiler)
+////    add("kspIosX64", libs.androidx.room.compiler)
+//    add("kspIosArm64", libs.androidx.room.compiler)
+//
+//    debugImplementation(compose.uiTooling)
+//}
