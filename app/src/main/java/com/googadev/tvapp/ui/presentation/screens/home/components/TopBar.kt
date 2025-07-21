@@ -11,10 +11,19 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.tv.material3.Text
+import androidx.compose.foundation.clickable
 
+
+import androidx.compose.foundation.border
+import androidx.compose.foundation.focusable
+import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.runtime.*
+import androidx.compose.ui.focus.*
+import androidx.compose.ui.unit.*
 
 @Composable
-fun TopBar() {
+fun TopBar(onItemClick: (String) -> Unit) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
@@ -22,10 +31,29 @@ fun TopBar() {
         horizontalArrangement = Arrangement.SpaceBetween
     ) {
         Text("NETFLIX", fontSize = 20.sp, color = Color.Red, fontWeight = FontWeight.Bold)
+
         Row(horizontalArrangement = Arrangement.spacedBy(16.dp)) {
-            Text("Home", color = Color.White)
-            Text("TV Shows", color = Color.White)
-            Text("Movies", color = Color.White)
+            listOf("Home", "TV Shows", "Movies").forEach { label ->
+                val focusRequester = remember { FocusRequester() }
+                var isFocused by remember { mutableStateOf(false) }
+
+                Box(
+                    modifier = Modifier
+                        .focusRequester(focusRequester)
+                        .onFocusChanged { focusState -> isFocused = focusState.isFocused }
+                        .focusable()
+                        .clickable { onItemClick(label) }
+                        .border(
+                            width = if (isFocused) 2.dp else 0.dp,
+                            color = if (isFocused) Color.Red else Color.Transparent,
+                            shape = RoundedCornerShape(4.dp)
+                        )
+                        .padding(8.dp)
+                ) {
+                    Text(text = label, color = Color.White)
+                }
+            }
         }
     }
 }
+
