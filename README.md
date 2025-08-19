@@ -1,4 +1,4 @@
-Kotlin Android TV “Netflix” Clone
+#Kotlin Android TV “Netflix” Clone
 
 A polished, production-ready reference app for Android/Google TV built with Kotlin. It demonstrates a modern TV streaming UX (home rows, details, playback, search, profiles) using Jetpack libraries, Clean Architecture, and ExoPlayer—ready to plug into your own catalog API (e.g., TMDB) or a backend you control.
 
@@ -64,20 +64,20 @@ Testing: JUnit5, Robolectric, MockK, Turbine, Espresso, Macrobenchmark
 
 Build: Gradle Kotlin DSL
 
-🗂 Project Structure
-app/                         # Android TV app (Compose for TV shell, navigation)
-core-ui/                     # TV components: rails, carousels, focus effects
-core-model/                  # Immutable models (Movie, Show, Episode, UserProfile, etc.)
-core-network/                # Retrofit/Moshi services, DTOs, interceptors
-core-database/               # Room entities/DAOs, migrations
-core-data/                   # Repos combining network+db, mapping DTO<->model
-feature-home/                # Home rails, continue watching, genres
-feature-details/             # Title details, seasons/episodes, recommendations
-feature-player/              # Player screen, controls, subtitles, next-episode
-feature-search/              # Text & voice search, results
-feature-profile/             # Profile picker, watchlist, ratings
-benchmark/                   # Macrobenchmarks
-build-logic/                 # Convention plugins, common configs
+  🗂 Project Structure
+  app/                         # Android TV app (Compose for TV shell, navigation)
+  core-ui/                     # TV components: rails, carousels, focus effects
+  core-model/                  # Immutable models (Movie, Show, Episode, UserProfile, etc.)
+  core-network/                # Retrofit/Moshi services, DTOs, interceptors
+  core-database/               # Room entities/DAOs, migrations
+  core-data/                   # Repos combining network+db, mapping DTO<->model
+  feature-home/                # Home rails, continue watching, genres
+  feature-details/             # Title details, seasons/episodes, recommendations
+  feature-player/              # Player screen, controls, subtitles, next-episode
+  feature-search/              # Text & voice search, results
+  feature-profile/             # Profile picker, watchlist, ratings
+  benchmark/                   # Macrobenchmarks
+  build-logic/                 # Convention plugins, common configs
 
 
 Architecture (Clean + MVVM)
@@ -128,14 +128,14 @@ Switch with Build Variants or:
 ./gradlew :app:assembleLeanbackDebug
 
 🎮 Remote Controls & Key Mapping
-Action	Key / Button
-Move focus	DPAD_UP/DOWN/LEFT/RIGHT
-Select	DPAD_CENTER / ENTER
-Back	BACK
-Play/Pause	MEDIA_PLAY_PAUSE
-Fast Seek ±	MEDIA_FAST_FORWARD / MEDIA_REWIND
-Next/Prev episode	MEDIA_NEXT / MEDIA_PREVIOUS
-Info / Details	BUTTON_Y (controllers), long-press OK
+    Action	Key / Button
+    Move focus	DPAD_UP/DOWN/LEFT/RIGHT
+    Select	DPAD_CENTER / ENTER
+    Back	BACK
+    Play/Pause	MEDIA_PLAY_PAUSE
+    Fast Seek ±	MEDIA_FAST_FORWARD / MEDIA_REWIND
+    Next/Prev episode	MEDIA_NEXT / MEDIA_PREVIOUS
+    Info / Details	BUTTON_Y (controllers), long-press OK
 
 Focus is handled via Compose for TV Focusable + custom scale/shine effects. Components have large touch targets (≥ 48dp) and clear focus rings.
 
